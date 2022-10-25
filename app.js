@@ -4,7 +4,7 @@ import livros from "./models/Livro.js"
 
 db.on("error", console.log.bind(console, 'Erro de conexao'));
 db.once("open", () => {
-    console.log("Conexao feita com o banco feita com sucesso");
+    console.log("Conexao com o banco feita com sucesso");
 })
 
 const app = express();
@@ -18,9 +18,8 @@ app.get('/', (req, res) => {
 app.get('/livros', (req, res) => {
     livros.find((err, livros) => {
         res.status(200).json(livros);   
+        })
     })
-    
-})
 
 app.get('/livros/:id', (req, res) => {
     let index = buscaLivro(req.params.id);
