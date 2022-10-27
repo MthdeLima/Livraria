@@ -8,6 +8,18 @@ class LivroController {
         })
     }
 
+    static listarLivroPorId = (req, res) => {
+        const id = req.params.id;
+
+        livros.findById(id, (err, livros) => {
+            if(err) {
+                res.status(400).send({message: `${err.message} - Id do livro nao localizado.`});
+            } else {
+                res.status(200).send(livros);
+            }
+        })
+    }
+
     static cadastrarLivros = (req, res) => {
         let livro = new livros(req.body);
         
@@ -31,7 +43,20 @@ class LivroController {
             }
         })
     }
+
+    static apagarLivros = (req,res) =>{
+        const id = req.params.id;
+
+        livros.findByIdAndDelete(id, (err) => {
+            if(!err){
+                res.status(200).send({message: 'Livro removido com sucesso'});
+            } else {
+                res.status(500).send({message: err.message});
+            }
+        })
+    }
 }
+
 
 
     
