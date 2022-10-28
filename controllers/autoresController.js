@@ -1,6 +1,6 @@
 import autores from "../models/Autor.js";
 
-class autoresController {
+class AutorController {
     
     static listarAutor = (req, res) => {
         autores.find((err, autores) => {
@@ -57,8 +57,4 @@ class autoresController {
     }
 }
 
-
-
-    
-
-export default autorController
+export default AutorController;
