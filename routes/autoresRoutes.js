@@ -10,4 +10,4 @@ router
     .put("/autores/:id", AutorController.atualizarAutor)
     .delete("/livvros/:id", AutorController.apagarAutores)
 
-export default router;
+export default router
